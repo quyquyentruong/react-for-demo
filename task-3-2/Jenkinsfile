@@ -47,14 +47,13 @@ pipeline {
     }
     
     stage ('Test') {
-      tools {
-        nodejs 'nodejs 8.9.4'
-      }
       steps {
-        sh 'echo "Run unit test..."'
-        sh 'npm test'
-        sh 'echo "Run unit test successfully."'
-        sh 'ls -al'
+      nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
+            sh 'echo "Run unit test..."'
+            sh 'npm test'
+            sh 'echo "Run unit test successfully."'
+            sh 'ls -al'
+        }
       }
     }
   }
