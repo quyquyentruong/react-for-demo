@@ -25,12 +25,6 @@ pipeline {
     stage ('Install dependencies') {
       steps {
       nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
-         sh '''
-            echo "Installing..."
-            npm install
-            echo "Install dependencies successfully."
-            ls -al
-         '''
         }
       }
     }
@@ -38,10 +32,6 @@ pipeline {
     stage ('Build') {
       steps {
         nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
-          sh 'echo "Build application..."'
-          sh 'npm run build'
-          sh 'echo "Build application successfully."'
-          sh 'ls -al'
         }
       }
     }
@@ -49,10 +39,6 @@ pipeline {
     stage ('Test') {
       steps {
       nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
-            sh 'echo "Run unit test..."'
-            sh 'npm test'
-            sh 'echo "Run unit test successfully."'
-            sh 'ls -al'
         }
       }
     }
