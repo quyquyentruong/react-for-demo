@@ -23,16 +23,15 @@ pipeline {
     // }
 
     stage ('Install dependencies') {
-      tools {
-        nodejs 'nodejs 8.9.4'
-      }
       steps {
-        sh '''
-          echo "Installing..."
-          npm install
-          echo "Install dependencies successfully."
-          ls -al
-        '''
+      nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
+         sh '''
+            echo "Installing..."
+            npm install
+            echo "Install dependencies successfully."
+            ls -al
+         '''
+        }
       }
     }
 
